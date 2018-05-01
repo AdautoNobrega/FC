@@ -1,0 +1,6 @@
+README.md
+FCamara.egg-info/PKG-INFO
+FCamara.egg-info/SOURCES.txt
+FCamara.egg-info/dependency_links.txt
+FCamara.egg-info/requires.txt
+FCamara.egg-info/top_level.txt

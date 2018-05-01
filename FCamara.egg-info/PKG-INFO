@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: FCamara
+Version: 0.0.1
+Summary: Teste Fullstack
+Home-page: https://github.com/
+Author: Adauto Nóbrega
+Author-email: adauto204@gmail.com
+License: GPL
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3.5
+Provides-Extra: dev

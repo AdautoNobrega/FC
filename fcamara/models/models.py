@@ -22,7 +22,7 @@ class MySession():
             if os.name != 'nt':
                 path = '/' + path
         self._engine = create_engine(
-            'postgresql://' + path, convert_unicode=True)
+            'sqlite:///' + path, convert_unicode=True)
         Session = sessionmaker(bind=self._engine)
         self._session = scoped_session(Session)
         base.metadata.bind = self._engine
