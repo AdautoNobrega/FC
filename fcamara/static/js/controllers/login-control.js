@@ -12,10 +12,10 @@ angular.module('fc')
 
                 $http({
                     method: 'POST',
-                    url: '/auth',
-                    data: { 'username': $scope.user.nome, 'password': $scope.user.senha, }
+                    url: '/login',
+                    data: { 'username': $scope.user.email, 'password': $scope.user.senha}
                 }).then(function successCallback(response) {
-                    $scope.mensagem = 'Foi';
+                    $scope.mensagem = 'Usuário logado';
                     $scope.token = response.access_token
                 }, function errorCallback(response) {
                     console.log(response)

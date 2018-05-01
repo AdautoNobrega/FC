@@ -14,10 +14,13 @@ class Permissao:
 
 class MySession():
     def __init__(self, base, test=False):
-        path = os.path.join(os.path.dirname(
-            os.path.abspath(__file__)), 'fc.db')
-        if os.name != 'nt':
-            path = '/' + path
+        if test:
+            path = ':memory:'
+        else:
+            path = os.path.join(os.path.dirname(
+                os.path.abspath(__file__)), 'fc.db')
+            if os.name != 'nt':
+                path = '/' + path
         self._engine = create_engine(
             'postgresql://' + path, convert_unicode=True)
         Session = sessionmaker(bind=self._engine)
@@ -36,50 +39,57 @@ class MySession():
 Base = declarative_base()
 
 
-class User(Base):
-    __tablename__ = 'user'
+class Usuario(Base):
+    __tablename__ = 'usuarios'
     id = Column(Integer, primary_key=True)
-    username = Column(String(20), unique=True)
-    _password = Column(String(200))
+    email = Column(String(20), unique=True)
+    senha = Column(String(200), nullable=False)
+    permissao = Column(Integer, default=1)
+    compra = relationship('Compra', back_populates='usuarios')
 
-    def __init__(self, username, password, permissao):
-        self.username = username
-        self._password = self.encript(password)
+    def __init__(self, email, senha, permissao):
+        self.email = email
+        self.senha = senha
+        self.permissao = permissao
+
+    @classmethod
+    def get(cls, session, username, password):
+        DBUser = session.query(Usuario).filter(
+            Usuario.username == username,
+            Usuario.password == password
+        ).first()
+        return DBUser
 
 
 class Item(Base):
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
-    nome = Column(String(50))
+    nome = Column(String(20))
     descricao = Column(String(50))
     imagem = Column(String())
     preco = Column(Numeric(asdecimal=False))
+    categoria = Column(String(20))
 
-    def __init__(self, nome, descricao, imagem, preco):
+    def __init__(self, nome, descricao, imagem, preco, categoria):
         self.nome = nome
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
+        self.categoria = categoria
 
 
-class Categoria(Base):
-    __tablename__ = 'categoria'
-    id = Column(Integer, primary_key=True)
-    nome = Column(Integer, unique=True)
-
-
-class Carrinho(Base):
-    __tablename__ = 'carrinho'
+class Compra(Base):
+    __tablename__ = 'compra'
     id = Column(Integer, primary_key=True)
     produto_id = Column(Integer, ForeignKey('item.id'))
-    usuario_id = Column(Integer, ForeignKey('user.id'))
-    finalisado = Column(Boolean)
+    usuario_id = Column(Integer, ForeignKey('usuarios.id'))
+    usuarios = relationship('Usuario', back_populates='compra')
+    is_finalizado = Column(Boolean, default=False)
 
-
-class CarrinhoProduto(Base):
-    __tablename__ = 'carrinhoitem'
-    id = Column(Integer, primary_key=True)
-    
+    def __init__(self, produto, usuario, finalizado):
+        self.produto_id = produto.id
+        self.usuario_id = usuario.id
+        self.finalizado = finalizado
 
 
 if __name__ == '__main__':

@@ -5,9 +5,11 @@
     <input class="form-control" placeholder="Filtrar por nome ou por titulo" ng-model="filtro">
 </div>
 <br>
-<div class="row">
+<div class="container">
     <div class="card-group">
         <itens-card ng-repeat="item in itens | filter: filtro" id="{{item.id}}" imagem="{{item.imagem}}" nome="{{item.nome}}" descricao="{{item.descricao}}">
+            <button class="btn btn-outline-primary btn-block" ng-click="carrinho('{{item.id}}')">
+                <i class="fa fa-plus"></i>Carrinho</button>
         </itens-card>
     </div>
 </div>

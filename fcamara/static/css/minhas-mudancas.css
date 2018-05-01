@@ -1,0 +1,15 @@
+.my-body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(4, 0, 255);
+    background-image: url('images/paper.jpg');
+}
+.text{
+    color: white;
+}
+.center {
+    color: aliceblue;
+    margin: auto;
+    width: 50%;
+    border: 1px solid white;
+    padding: 10px;
+}

@@ -1,4 +1,4 @@
-angular.module('dialogDemo1', ['ngMaterial'])
+angular.module('fc')
 
     .controller('AppControl', function ($scope, $mdDialog) {
         $scope.status = '  ';

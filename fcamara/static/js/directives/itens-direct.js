@@ -19,7 +19,7 @@ angular.module('itensDirect', [])
         return ddo;
     })
     .directive('carousel', function () {
-        
+
         var ddo = {};
 
         ddo.restrict = "AE";
@@ -34,6 +34,20 @@ angular.module('itensDirect', [])
         };
 
         ddo.templateUrl = 'static/js/directives/carousel.html';
+
+        return ddo;
+    })
+    .directive('carrButton', function () {
+
+        var ddo = {};
+
+        ddo.restrict = "AE";
+
+        ddo.scope = {
+            carrinho: '@'
+        };
+
+        ddo.templateUrl = 'static/js/directives/carr-button.html';
 
         return ddo;
     })

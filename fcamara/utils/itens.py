@@ -1,4 +1,4 @@
-from fcamara.models.models import Item, Categoria, Carrinho
+from fcamara.models.models import Item, Compra
 
 
 class GerenciaItens:
@@ -10,9 +10,9 @@ class GerenciaItens:
         itens = self.dbsession.query(Item).all()
         return itens
 
-    def lista_categorias(self):
+    """def lista_categorias(self):
         categorias = self.dbsession.query(Categoria).all()
-        return categorias
+        return categorias"""
 
     def lista_carrinho(self, id):
         carrinho = self.dbsession.query(Carrinho).filter(

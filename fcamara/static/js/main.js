@@ -1,4 +1,4 @@
-angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource', 'ui.carousel'])
+angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({
       enabled: true,
@@ -7,7 +7,6 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource', 'ui.c
 
     $routeProvider.when('/', {
       templateUrl: '/static/partials/home.html',
-      controller: 'CarControl'
     });
 
     $routeProvider.when('/produtos', {
@@ -35,6 +34,6 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource', 'ui.c
     });
 
 
-    //$routeProvider.otherwise({ redirectTo: '/' });
+    $routeProvider.otherwise({ redirectTo: '/' });
 
   });
