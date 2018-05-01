@@ -7,8 +7,14 @@ class GerenciaItens:
         self.dbsession = dbsession
 
     def lista_itens(self):
+        result = []
         itens = self.dbsession.query(Item).all()
-        return itens
+        for item in itens:  
+            result.append({'_id':str(item.id),
+                        'nome': str(item.nome),
+                        'imagem': item.imagem,
+                        'descricao': item.descricao})
+        return result
 
     """def lista_categorias(self):
         categorias = self.dbsession.query(Categoria).all()
