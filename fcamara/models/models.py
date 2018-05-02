@@ -1,4 +1,3 @@
-"""DataBase models for raspapreco mod1"""
 import os
 
 from sqlalchemy import (Boolean, Column, ForeignKey,
