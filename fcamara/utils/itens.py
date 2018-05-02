@@ -1,4 +1,4 @@
-from fcamara.models.models import Item, Compra
+from fcamara.models.models import Item, Compra, Usuario
 
 
 class GerenciaItens:
@@ -23,9 +23,14 @@ class GerenciaItens:
         ).all()
         return len(carrinho)
 
-    def adicionar_carrinho(self, id):
+    def adicionar_carrinho(self, id, user='fcamara'):
         item = self.dbsession.query(Item).filter(
             Item.id == id
         ).first()
-        # carrinho = Compra(item,)
-        return item
+        usuario = self.dbsession.query(Usuario).filter(
+            Usuario.email == user
+        )
+        carrinho = Compra(item, usuario, False)
+        self.dbsession.add(carrinho)
+        self.dbsession.commit()
+        return 'Item adicionado ao carrinho!'

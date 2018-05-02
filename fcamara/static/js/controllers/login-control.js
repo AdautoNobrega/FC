@@ -16,9 +16,10 @@ angular.module('fc')
                     data: { 'username': $scope.user.email, 'password': $scope.user.senha}
                 }).then(function successCallback(response) {
                     $scope.mensagem = 'Usuário logado';
-                    $scope.token = response.access_token
+                    $scope.token = response.access_token;
                 }, function errorCallback(response) {
                     console.log(response)
+                    $scope.mensagem = 'Não autorizado!! Por favor confira e-mail e senha e tente novamente.';
                 });
             }
             return $scope.token;

@@ -12,9 +12,9 @@ angular.module('fc')
             method: 'GET',
             url: '/islogged'
         }).then(function successCallback(response) {
-            $scope.isLogged = response.data
+            $scope.isLogged = response.data;
         }, function errorCallback(response) {
-            console.log(response)
+            console.log(response);
         });
 
 
@@ -22,19 +22,19 @@ angular.module('fc')
             method: 'GET',
             url: '/carrinho'
         }).then(function successCallback(response) {
-            $scope.carrinho = response.data
+            $scope.carrinho = response.data;
         }, function errorCallback(response) {
-            console.log(response)
+            console.log(response);
         });
         $scope.carrinho = function (id) {
             $http({
                 method: 'POST',
                 url: '/comprar?id=' + id
             }).then(function successCallback(response) {
-                console.log(response.data)
-                $scope.mensagem = response.data
+                console.log(response.data);
+                $scope.mensagem = response.data;
             }, function errorCallback(response) {
-                console.log(response)
+                console.log(response);
             });
         };
 
@@ -42,9 +42,20 @@ angular.module('fc')
             method: 'GET',
             url: '/itens'
         }).then(function successCallback(response) {
-            $scope.itens = response.data
+            $scope.itens = response.data;
         }, function errorCallback(response) {
-            console.log(response)
+            console.log(response);
         });
 
+        $scope.logout = function () {
+            $http({
+                method: 'GET',
+                url: '/logout'
+            }).then(function successCallback(response) {
+                console.log(response);
+                $scope.isLogged = false;
+            }, function errorCallback(response) {
+                console.log(response);
+            });
+        };
     });

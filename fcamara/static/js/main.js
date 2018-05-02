@@ -17,7 +17,7 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
 
     $routeProvider.when('/cadastro/itens', {
       templateUrl: '/static/partials/cadastroitens.html',
-      controller: ['ItensControl','InicioControl']
+      controller: 'ItensControl'
     });
 
     $routeProvider.when('/cadastro/usuario', {

@@ -40,15 +40,17 @@ def itens():
 @app.route('/comprar', methods=['GET', 'POST'])
 @login_required
 def comprar():
-    gerencia = GerenciaItens(dbsession)
     id = request.args.get('id')
+    gerencia = GerenciaItens(dbsession)
+    gerencia.adicionar_carrinho(id)
     return jsonify(id)
 
 
 @app.route('/carrinho', methods=['GET', 'POST'])
+@login_required
 def carrinho():
     gerencia = GerenciaItens(dbsession)
-    result = gerencia.lista_itens()
+    result = gerencia.lista_carrinho(1) # hard coded
     return jsonify(len(result))
 
 
