@@ -17,6 +17,8 @@ pip install -r requirements.txt
 python fc.py
 ``
 
+Após isso ir na url http://127.0.0.1:5000/
+
 # Mini Docs
 
 O sistema apresenta duas telas
