@@ -60,4 +60,7 @@ angular.module('fc')
                 console.log(response);
             });
         };
+        $scope.notImplemented = function () {
+            $scope.mensagem = 'Desculpe. Não implementado ainda.'
+        };
     });

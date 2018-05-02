@@ -9,20 +9,6 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
       templateUrl: '/static/partials/produtos.html',
       controller: 'ItensControl',
     });
-    
-    $routeProvider.when('/carrinho', {
-      templateUrl: '/static/partials/compra.html',
-      controller: 'Carrinho'
-    });
-
-    $routeProvider.when('/cadastro/itens', {
-      templateUrl: '/static/partials/cadastroitens.html',
-      controller: 'ItensControl'
-    });
-
-    $routeProvider.when('/cadastro/usuario', {
-      templateUrl: '/static/partials/cadastrousuario.html'
-    });
 
     $routeProvider.when('/login', {
       templateUrl: '/static/partials/login.html',
