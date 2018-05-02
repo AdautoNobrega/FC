@@ -6,6 +6,7 @@ angular.module('fc')
         $scope.mensagem = ''
         $scope.isLogged = false;
         $scope.carrinho = 0;
+        $scope.id= 1;
 
 
         $http({
@@ -35,15 +36,16 @@ angular.module('fc')
             console.log(response);
         });
 
-        $scope.adicionar_carrinho = function (id) {
+        $scope.adicionar_carrinho = function () {
             $http({
                 method: 'POST',
-                url: '/comprar?id=' + id
+                url: '/comprar?itemid=' + $scope.id
             }).then(function successCallback(response) {
                 console.log(response.data);
                 $scope.mensagem = response.data;
             }, function errorCallback(response) {
                 console.log(response);
+                $scope.mensagem = 'Não foi possível comprar';
             });
         };
 

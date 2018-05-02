@@ -47,9 +47,10 @@
     <div class="row">
         <div class="d-flex flex-row align-items-stretch">
             <div class="card-group">
-                <itens-card ng-repeat="item in itens | filter: filtro" id="{{item._id}}" imagem="{{item.imagem}}" nome="{{item.nome}}" descricao="{{item.descricao}}">
-                    <button class="btn btn-outline-primary btn-block" ng-click="adicionar_carrinho('{{item._id}}')">
-                        <i class="fa fa-plus"></i>Carrinho</button>
+                <itens-card ng-repeat="item in itens | filter: filtro" id="{{item.id}}" imagem="{{item.imagem}}" nome="{{item.nome}}" descricao="{{item.descricao}}"
+                    preco="{{item.preco}}">
+                    <button class="btn btn-outline-primary btn-block" ng-click="adicionar_carrinho()">
+                        Carrinho</button>
                 </itens-card>
             </div>
         </div>

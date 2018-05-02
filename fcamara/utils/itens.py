@@ -15,7 +15,7 @@ class GerenciaItens:
         result = []
         itens = self.dbsession.query(Item).all()
         for item in itens:
-            result.append({'_id': str(item.id),
+            result.append({'id': str(item.id),
                            'nome': str(item.nome),
                            'imagem': item.imagem,
                            'descricao': item.descricao})
@@ -32,9 +32,9 @@ class GerenciaItens:
         carrinho = self.dbsession.query(Compra).filter(
             Compra.usuario_id == id
         ).all()
-        return carrinho
+        return len(carrinho)
 
-    def adicionar_carrinho(self, id, user='fcamara'):
+    def adicionar_carrinho(self, itemid, user='fcamara'):
         """Adiciona um item ao carrinho.
 
         Este método está *hard coded*
@@ -44,12 +44,14 @@ class GerenciaItens:
             user: nome do usuário
         """
         item = self.dbsession.query(Item).filter(
-            Item.id == id
+            Item.id == itemid
         ).first()
         usuario = self.dbsession.query(Usuario).filter(
             Usuario.email == user
-        )
-        carrinho = Compra(item, usuario, False)
-        self.dbsession.add(carrinho)
-        self.dbsession.commit()
-        return 'Item adicionado ao carrinho!'
+        ).first()
+        if item and usuario:
+            carrinho = Compra(item.id, usuario.id, False)
+            self.dbsession.add(carrinho)
+            self.dbsession.commit()
+            return 'Item adicionado ao carrinho!'
+        return 'Não foi possível adicionar'

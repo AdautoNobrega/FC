@@ -45,9 +45,9 @@ def itens():
 @login_required
 def comprar():
     """Função que adiciona itens ao carrinho."""
-    id = request.args.get('id')
+    itemid = request.args.get('itemid')
     gerencia = GerenciaItens(dbsession)
-    response = gerencia.adicionar_carrinho(id)
+    response = gerencia.adicionar_carrinho(itemid)
     return jsonify(response)
 
 

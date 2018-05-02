@@ -86,9 +86,9 @@ class Compra(Base):
     usuarios = relationship('Usuario', back_populates='compra')
     is_finalizado = Column(Boolean, default=False)
 
-    def __init__(self, produto, usuario, finalizado):
-        self.produto_id = produto.id
-        self.usuario_id = usuario.id
+    def __init__(self, produto_id, usuario_id, finalizado):
+        self.produto_id = produto_id
+        self.usuario_id = usuario_id
         self.finalizado = finalizado
 
 
