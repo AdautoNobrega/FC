@@ -23,11 +23,13 @@ O sistema apresenta duas telas
 
 A tela que apresenta os produtos contidos no banco de dados:
 
-![Alt text](docs\\images\\produtos.png?raw=true "Tela Produtos")
+![Alt text](https://github.com/AdautoNobrega/FC/blob/master/docs/images/produtos.png?raw=true "Tela Produtos")
 
-E uma simples tela de login:
+Esta tela permite filtrar os itens.
 
-![Alt text](docs\\images\\login.png?raw=true "Tela Login")
+E uma tela de login:
+
+![Alt text](https://github.com/AdautoNobrega/FC/blob/master/docs/images/login.png "Tela Login")
 
 
 **Usuário fcamara**
