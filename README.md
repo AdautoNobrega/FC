@@ -23,15 +23,12 @@ O sistema apresenta duas telas
 
 A tela que apresenta os produtos contidos no banco de dados:
 
-.. image :: docs\\images\\produtos.png
-    :target: .
-
-    Tela Produtos
+![Alt text](docs\\images\\produtos.png?raw=true "Tela Produtos")
 
 E uma simples tela de login:
 
-.. image :: docs\\images\\login.png
-    :target: .
+![Alt text](docs\\images\\login.png?raw=true "Tela Login")
+
 
 **Usuário fcamara**
 **Senha fcamara**
