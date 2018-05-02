@@ -6,7 +6,6 @@ beautifulsoup4==4.6.0
 blinker==1.4
 click==6.7
 coverage==4.5.1
--e git+https://github.com/AdautoNobrega/FC@c5ef09d56210ef3f7e8d8c23c39ce687540c824f#egg=FCamara
 flake8==3.5.0
 flake8-docstrings==1.3.0
 flake8-polyfill==1.0.2

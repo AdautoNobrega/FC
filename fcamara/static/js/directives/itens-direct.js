@@ -11,8 +11,7 @@ angular.module('itensDirect', [])
             id: '@',
             nome: '@',
             imagem: '@',
-            descricao: '@',
-            preco: '@'
+            descricao: '@'
         };
 
         ddo.templateUrl = 'static/js/directives/itens-card.html';
