@@ -35,14 +35,8 @@ def itens():
     return jsonify(result)
 
 
-@app.route('/categorias')
-def categorias():
-    gerencia = GerenciaItens(dbsession)
-    result = gerencia.lista_itens()
-    return jsonify(result)
-
-
 @app.route('/comprar', methods=['GET', 'POST'])
+@login_required
 def comprar():
     gerencia = GerenciaItens(dbsession)
     result = gerencia.lista_itens()

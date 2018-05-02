@@ -53,14 +53,12 @@ class DBUser():
     dbsession = None
 
     def __init__(self, id, password=None):
-        """Apenas monta uma instância."""
         self.id = id
         self.name = str(id)
         self._password = password
 
     @classmethod
     def add(cls, username, password):
-        """Cria usuário ou muda senha se ele existe."""
         if not cls.dbsession:
             raise Exception('Sem conexão com o Banco de Dados!')
         cursor = cls.dbsession.users.update(
@@ -74,7 +72,6 @@ class DBUser():
     @classmethod
     def get(cls, username, password=None):
         if cls.dbsession:
-            print('DBSEssion ', cls.dbsession)
             return DBUser(username)
         else:
             if username:

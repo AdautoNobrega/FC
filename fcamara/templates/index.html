@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/minhas-mudancas.css" rel="stylesheet">
+    <script src="static/js/lib/jquery.min.js"></script>
+    <script src="static/js/lib/bootstrap.min.js"></script>
     <script src="static/js/lib/angular.min.js"></script>
     <script src="static/js/lib/angular-animate.min.js"></script>
     <script src="static/js/lib/angular-route.min.js"></script>
@@ -14,17 +16,14 @@
     <script src="static/js/controllers/inicio-control.js"></script>
     <script src="static/js/controllers/itens-control.js"></script>
     <script src="static/js/controllers/carrinho.js"></script>
-    <script src="static/js/controllers/car-control.js"></script>
     <script src="static/js/controllers/login-control.js"></script>
-    <script src="static/js/controllers/app-control.js"></script>
     <script src="static/js/directives/itens-direct.js"></script>
-    <script src="static/node_modules/angular-ui-carousel/dist/ui-carousel.js"></script>
 </head>
 
 <body class="my-body" ng-controller="InicioControl">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">FC-commerce</a>
+        <a class="navbar-brand" href="/produtos">FC-commerce</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#!navbar" aria-controls="navbar" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,14 +36,14 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item active" ng-show="isLogged">
+                <li class="nav-item active" ng-show="isLogged===true">
                     <a class="nav-link" href="/carrinho">Meu carrinho
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
             </ul>
 
-            <ul class="navbar-nav" ng-show="isLogged">
+            <ul class="navbar-nav" ng-show="isLogged===false">
                 <li class="nav-item">
                     <a class="btn btn-outline-warning" data-toggle="modal" href="/login">Login
                         <span class="sr-only">(current)</span>

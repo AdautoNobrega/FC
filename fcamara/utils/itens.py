@@ -9,11 +9,11 @@ class GerenciaItens:
     def lista_itens(self):
         result = []
         itens = self.dbsession.query(Item).all()
-        for item in itens:  
-            result.append({'_id':str(item.id),
-                        'nome': str(item.nome),
-                        'imagem': item.imagem,
-                        'descricao': item.descricao})
+        for item in itens:
+            result.append({'_id': str(item.id),
+                           'nome': str(item.nome),
+                           'imagem': item.imagem,
+                           'descricao': item.descricao})
         return result
 
     """def lista_categorias(self):
@@ -21,7 +21,13 @@ class GerenciaItens:
         return categorias"""
 
     def lista_carrinho(self, id):
-        carrinho = self.dbsession.query(Carrinho).filter(
-            Carrinho.user_id == id
+        carrinho = self.dbsession.query(Compra).filter(
+            Compra.user_id == id
+        ).all()
+        return len(carrinho)
+
+    def comprar(self, id):
+        carrinho = self.dbsession.query(Compra).filter(
+            Compra.user_id == id
         ).all()
         return len(carrinho)

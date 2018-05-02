@@ -7,11 +7,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, scoped_session, sessionmaker
 
 
-class Permissao:
-    COMPRAR = 1
-    CADASTRAR = 2
-
-
 class MySession():
     def __init__(self, base, test=False):
         if test:

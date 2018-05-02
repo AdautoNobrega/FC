@@ -3,6 +3,7 @@ angular.module('fc')
 
         $scope.itens = [];
         $scope.filtro = '';
+        $scope.mensagem = ''
 
         $scope.carrinho = function (id) {
             $http({
@@ -10,6 +11,7 @@ angular.module('fc')
                 url: '/comprar?id=' + id
             }).then(function successCallback(response) {
                 console.log(response.data)
+                $scope.mensagem = response.data
             }, function errorCallback(response) {
                 console.log(response)
             });

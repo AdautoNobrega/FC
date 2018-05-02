@@ -34,6 +34,6 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
     });
 
 
-    $routeProvider.otherwise({ redirectTo: '/' });
+    $routeProvider.otherwise({ redirectTo: '/produtos' });
 
   });

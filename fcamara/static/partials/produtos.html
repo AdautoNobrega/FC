@@ -1,6 +1,9 @@
 <div class="jumbotron jumbotron-fluid">
     <h1 class="text-center">Produtos</h1>
 </div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
 <div class="form-control">
     <input class="form-control" placeholder="Filtrar por nome ou por titulo" ng-model="filtro">
 </div>
