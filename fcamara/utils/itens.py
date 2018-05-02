@@ -16,9 +16,6 @@ class GerenciaItens:
                            'descricao': item.descricao})
         return result
 
-    """def lista_categorias(self):
-        categorias = self.dbsession.query(Categoria).all()
-        return categorias"""
 
     def lista_carrinho(self, id):
         carrinho = self.dbsession.query(Compra).filter(
@@ -26,8 +23,9 @@ class GerenciaItens:
         ).all()
         return len(carrinho)
 
-    def comprar(self, id):
-        carrinho = self.dbsession.query(Compra).filter(
-            Compra.user_id == id
-        ).all()
-        return len(carrinho)
+    def adicionar_carrinho(self, id):
+        item = self.dbsession.query(Item).filter(
+            Item.id == id
+        ).first()
+        # carrinho = Compra(item,)
+        return item

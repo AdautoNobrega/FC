@@ -2,6 +2,7 @@ import os
 from flask import Flask, jsonify, render_template, request
 from flask_login import current_user, login_required
 from flask_sqlalchemy import SQLAlchemy
+from flask_session import Session
 from .utils.itens import GerenciaItens
 from .models.models import Base, Compra, Item, MySession, Usuario
 from . import login
@@ -23,6 +24,7 @@ login.configure(app)
 login.DBUser.dbsession = db
 
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -39,9 +41,8 @@ def itens():
 @login_required
 def comprar():
     gerencia = GerenciaItens(dbsession)
-    result = gerencia.lista_itens()
-    request.args.get('id')
-    return jsonify(result)
+    id = request.args.get('id')
+    return jsonify(id)
 
 
 @app.route('/carrinho', methods=['GET', 'POST'])

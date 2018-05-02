@@ -5,13 +5,9 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
       requireBase: false
     });;
 
-    $routeProvider.when('/', {
-      templateUrl: '/static/partials/home.html',
-    });
-
     $routeProvider.when('/produtos', {
       templateUrl: '/static/partials/produtos.html',
-      controller: 'ItensControl'
+      controller: 'ItensControl',
     });
     
     $routeProvider.when('/carrinho', {
@@ -21,7 +17,7 @@ angular.module('fc', ['itensDirect', 'ngAnimate', 'ngRoute', 'ngResource'])
 
     $routeProvider.when('/cadastro/itens', {
       templateUrl: '/static/partials/cadastroitens.html',
-      controller: 'ItensControl'
+      controller: ['ItensControl','InicioControl']
     });
 
     $routeProvider.when('/cadastro/usuario', {

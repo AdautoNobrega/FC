@@ -1,3 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/produtos">FC-commerce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#!navbar" aria-controls="navbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/produtos">Produtos
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active" ng-show="isLogged===true">
+                <a class="nav-link" href="/carrinho">Meu carrinho
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav">
+            <li class="nav-item" ng-show="isLogged===false">
+                <a class="btn btn-outline-warning" data-toggle="modal" href="/login">Login
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item" ng-show="isLogged===true">
+                <a class="btn btn-warning" href="/logout">Logout
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
+        <carr-button ng-show="isLogged"></carr-button>
+    </div>
+</nav>
 <div class="jumbotron jumbotron-fluid">
     <h1 class="text-center">Produtos</h1>
 </div>
