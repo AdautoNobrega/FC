@@ -17,7 +17,6 @@ angular.module('fc')
             console.log(response);
         });
 
-
         $http({
             method: 'GET',
             url: '/carrinho'
@@ -26,7 +25,17 @@ angular.module('fc')
         }, function errorCallback(response) {
             console.log(response);
         });
-        $scope.carrinho = function (id) {
+
+        $http({
+            method: 'GET',
+            url: '/itens'
+        }).then(function successCallback(response) {
+            $scope.itens = response.data;
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+
+        $scope.adicionar_carrinho = function (id) {
             $http({
                 method: 'POST',
                 url: '/comprar?id=' + id
@@ -37,15 +46,6 @@ angular.module('fc')
                 console.log(response);
             });
         };
-
-        $http({
-            method: 'GET',
-            url: '/itens'
-        }).then(function successCallback(response) {
-            $scope.itens = response.data;
-        }, function errorCallback(response) {
-            console.log(response);
-        });
 
         $scope.logout = function () {
             $http({

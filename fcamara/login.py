@@ -1,10 +1,10 @@
+"""Módulo que valida o login."""
 
 from urllib.parse import urljoin, urlparse
 
-from flask import abort, redirect, render_template, request, url_for, jsonify
+from flask import abort, request, jsonify
 from flask_login import (LoginManager, UserMixin, login_required, login_user,
                          logout_user)
-from werkzeug.security import check_password_hash, generate_password_hash
 
 login_manager = LoginManager()
 login_manager.login_view = 'login'
@@ -12,6 +12,7 @@ login_manager.session_protection = 'strong'
 
 
 def configure(app):
+    """Configura as views de login."""
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
@@ -83,13 +84,7 @@ class DBUser():
 
 
 class Usuario(UserMixin):
-    """Mixin padrão do flask-login.
-
-    Está utilizando DBUser como base de autenticação.
-    Para utilizar outra base de dados, criar outra classe com
-    comportamento similar a DBUSer.
-
-    """
+    """Mixin padrão do flask-login."""
 
     user_database = DBUser
 
@@ -108,7 +103,7 @@ class Usuario(UserMixin):
 
 
 def authenticate(username, password):
-    """Método padrão do flask-login. Repassa responsabilidade a Usuario."""
+    """Método padrão do flask-login."""
     user_entry = Usuario.get(username, password)
     # print('authenticate user entry ', user_entry)
     return user_entry
@@ -116,7 +111,7 @@ def authenticate(username, password):
 
 @login_manager.user_loader
 def load_user(userid):
-    """Método padrão do flask-login. Repassa responsabilidade a Usuario."""
+    """Método padrão do flask-login."""
     user_entry = Usuario.get(userid)
     return user_entry
 

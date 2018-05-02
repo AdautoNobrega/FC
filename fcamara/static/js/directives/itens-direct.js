@@ -18,36 +18,3 @@ angular.module('itensDirect', [])
 
         return ddo;
     })
-    .directive('carousel', function () {
-
-        var ddo = {};
-
-        ddo.restrict = "AE";
-        ddo.transclude = true;
-
-
-        ddo.scope = {
-            id: '@',
-            imagem: '@',
-            nome: '@',
-            descricao: '@'
-        };
-
-        ddo.templateUrl = 'static/js/directives/carousel.html';
-
-        return ddo;
-    })
-    .directive('carrButton', function () {
-
-        var ddo = {};
-
-        ddo.restrict = "AE";
-
-        ddo.scope = {
-            carrinho: '@'
-        };
-
-        ddo.templateUrl = 'static/js/directives/carr-button.html';
-
-        return ddo;
-    })

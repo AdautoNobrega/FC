@@ -1,13 +1,15 @@
 """DataBase models for raspapreco mod1"""
 import os
 
-from sqlalchemy import (Boolean, Column, ForeignKey, Integer, LargeBinary,
-                        Numeric, PickleType, String, Table, create_engine)
+from sqlalchemy import (Boolean, Column, ForeignKey,
+                        Integer, Numeric, String, create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, scoped_session, sessionmaker
 
 
 class MySession():
+    """Para definir a sessão com o BD na aplicação."""
+
     def __init__(self, base, test=False):
         if test:
             path = ':memory:'
@@ -35,6 +37,7 @@ Base = declarative_base()
 
 
 class Usuario(Base):
+    """Tabela usuário."""
     __tablename__ = 'usuarios'
     id = Column(Integer, primary_key=True)
     email = Column(String(20), unique=True)
@@ -57,6 +60,7 @@ class Usuario(Base):
 
 
 class Item(Base):
+    """Tabela itens."""
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
     nome = Column(String(20))
@@ -74,6 +78,7 @@ class Item(Base):
 
 
 class Compra(Base):
+    """Tabela compra."""
     __tablename__ = 'compra'
     id = Column(Integer, primary_key=True)
     produto_id = Column(Integer, ForeignKey('item.id'))
